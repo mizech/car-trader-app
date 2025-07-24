@@ -26,7 +26,9 @@
     <main class="container mx-auto mt-28 px-5">
       <nav>
         <%= link_to "Vendors", root_path %> | 
-        <%= link_to "New vendor", new_vendor_path %>
+        <%= link_to "New vendor", new_vendor_path %> | 
+        <%= link_to "Cars", cars_path %> | 
+        <%= link_to "New car", new_car_path %>
       </nav>
       <% flash.each do |name, msg| %>
         <ul>
