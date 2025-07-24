@@ -24,6 +24,15 @@
 
   <body>
     <main class="container mx-auto mt-28 px-5">
+      <nav>
+        <%= link_to "Vendors", root_path %> | 
+        <%= link_to "New vendor", new_vendor_path %>
+      </nav>
+      <% flash.each do |name, msg| %>
+        <ul>
+          <li><%= msg %></li>
+        </ul>
+      <% end %>
       <%= yield %>
     </main>
   </body>
