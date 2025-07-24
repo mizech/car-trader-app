@@ -12,17 +12,19 @@ class CarsController < ApplicationController
   end
 
   def create
-    puts " -- Car#create --"
     @car = Car.create(set_params)
     if @car.save
+      flash[:notice] = "Car successfully created."
       redirect_to cars_path
     else
+      flash[:notice] = "Car creation failed."
       render :new, status: :unprocessable_entity
     end
   end
 
   def destroy
     @car.destroy
+    flash[:notice] = "Car has become deleted."
     redirect_to cars_path
   end
 

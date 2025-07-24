@@ -26,8 +26,8 @@ class VendorsController < ApplicationController
     @vendor = Vendor.new(set_params)
 
     if @vendor.save
-      redirect_to root_path
       flash[:notice] = "Vendor successfully created."
+      redirect_to root_path
     else
       flash[:notice] = "Vendor creation failed."
       render :new, status: :unprocessable_entity
