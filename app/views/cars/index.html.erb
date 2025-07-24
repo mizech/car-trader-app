@@ -7,7 +7,7 @@
 <% @cars.each do |car| %>
     <tr>
         <td class="p-4 border-b border-blue-gray-50"><%= link_to car.name, car_path(car) %></td>
-        <td class="p-4 border-b border-blue-gray-50"><%= car.price %></td>
+        <td class="p-4 border-b border-blue-gray-50"><%= car.price %> €</td>
     </tr>
 <% end %>
 </table>

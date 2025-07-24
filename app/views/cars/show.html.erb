@@ -1,0 +1,7 @@
+<h1 class="text-4xl">Car details</h1>
+<div>
+    <%= button_to "Delete", car_path(@car), method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+    <%= link_to "Edit", edit_car_path(@car) %>
+</div>
+<h2>Name: <%= @car.name %></h2>
+<div>Country: <%= @car.price %> €</div>

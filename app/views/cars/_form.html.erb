@@ -1,0 +1,21 @@
+<%= form_with model: @car do |form| %>
+    <% if @car.errors.any? %>
+        <p><%= pluralize @car.errors.count, "error" %> prevented the operation</p>
+        <% @car.errors.full_messages.each do |msg| %>
+            <%= msg %>
+        <% end %>
+    <% end %>
+    <div>
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+    </div>
+    <div>
+        <%= form.label :price %>
+        <%= form.text_field :price %>
+    </div>
+    <div>
+        <%= form.label :vendor_id %>
+        <%= form.collection_select :vendor_id, Vendor.all, :id, :name, prompt: "Select a vendor"  %>
+    </div>
+    <%= form.submit class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center" %>
+<% end %>
