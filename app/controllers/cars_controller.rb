@@ -1,5 +1,5 @@
 class CarsController < ApplicationController
-  before_action :set_car, only: [ :show, :destroy ]
+  before_action :set_car, only: [ :show, :destroy, :edit, :update ]
   def index
     @cars = Car.all
   end
@@ -19,6 +19,17 @@ class CarsController < ApplicationController
     else
       flash[:notice] = "Car creation failed."
       render :new, status: :unprocessable_entity
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @car.update(set_params)
+      redirect_to car_path(@car)
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
