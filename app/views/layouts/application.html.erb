@@ -24,15 +24,22 @@
 
   <body>
     <main class="container mx-auto mt-28 px-5">
+      <h2 class="text-5xl">Car Trader-App</h2>
       <nav>
-        <%= link_to "Vendors", root_path %> | 
-        <%= link_to "New vendor", new_vendor_path %> | 
-        <%= link_to "Cars", cars_path %> | 
-        <%= link_to "New car", new_car_path %>
+        <% if user_signed_in? %>
+          <%= link_to "Vendors", root_path %> | 
+          <%= link_to "New vendor", new_vendor_path %> | 
+          <%= link_to "Cars", cars_path %> | 
+          <%= link_to "New car", new_car_path %> | 
+          <%= link_to "Sign out", destroy_user_session_path, 'data-turbo-method': :delete %>
+        <% else %>
+          <%= link_to "Login", new_user_session_path %>
+          <%= link_to "Sign up", new_user_registration_path %>
+        <% end %>
       </nav>
       <% flash.each do |name, msg| %>
         <ul>
-          <li><%= msg %></li>
+          <li class="text-amber-900 font-bold"><%= msg %></li>
         </ul>
       <% end %>
       <%= yield %>
