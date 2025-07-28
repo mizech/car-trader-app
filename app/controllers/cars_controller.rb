@@ -41,7 +41,7 @@ class CarsController < ApplicationController
   end
 
   def set_params
-    params.expect(car: [ :name, :price, :vendor_id ])
+    params.expect(car: [ :name, :price, :vendor_id, :image ])
   end
 
   def set_car

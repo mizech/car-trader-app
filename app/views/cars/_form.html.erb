@@ -14,6 +14,9 @@
         <%= form.text_field :price %>
     </div>
     <div>
+        <%= form.file_field :image %>
+    </div>
+    <div>
         <%= form.label :vendor_id %>
         <%= form.collection_select :vendor_id, Vendor.all, :id, :name, prompt: "Select a vendor"  %>
     </div>
