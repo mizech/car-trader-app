@@ -24,13 +24,12 @@
 
   <body>
     <main class="container mx-auto mt-28 px-5">
-      <h2 class="text-5xl">Car Trader-App</h2>
+      <h2 class="text-5xl">Car Trader-App <%= image_tag("placeholder.png", style: "display: inline; border-radius: 24px;") %></h2>
       <nav>
         <% if user_signed_in? %>
           <%= link_to "Vendors", root_path %> | 
           <%= link_to "New vendor", new_vendor_path %> | 
           <%= link_to "Cars", cars_path %> | 
-          <%= link_to "New car", new_car_path %> | 
           <%= link_to "Sign out", destroy_user_session_path, 'data-turbo-method': :delete %>
         <% else %>
           <%= link_to "Login", new_user_session_path %>

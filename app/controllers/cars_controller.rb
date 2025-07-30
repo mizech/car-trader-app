@@ -14,9 +14,12 @@ class CarsController < ApplicationController
 
   def create
     @car = Car.create(set_params)
+
     if @car.save
-      flash[:notice] = "Car successfully created."
-      redirect_to cars_path
+      respond_to do |format|
+        flash[:notice] = "Car successfully created."
+        format.turbo_stream
+      end
     else
       flash[:notice] = "Car creation failed."
       render :new, status: :unprocessable_entity

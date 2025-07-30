@@ -1,13 +1,13 @@
-<h1 class="mb-4 text-4xl leading-none tracking-tight md:text-5xl lg:text-6xl dark:text-black">Cars</h1>
-<table class="w-full text-left table-auto min-w-max">
+<h1 class="mb-4 text-4xl leading-none tracking-tight md:text-5xl lg:text-6xl dark:text-black">Available Cars</h1>
+<%= turbo_frame_tag "car_form" do %>
+    <%= link_to "Create new car", new_car_path, class: "font-bold" %>
+<% end %>
+<table class="w-full text-left table-auto min-w-max" id="cars">
     <tr>
         <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">Name</th>
         <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">Country</th>
     </tr>
 <% @cars.each do |car| %>
-    <tr>
-        <td class="p-4 border-b border-blue-gray-50"><%= link_to car.name, car_path(car) %></td>
-        <td class="p-4 border-b border-blue-gray-50"><%= car.price %> €</td>
-    </tr>
+    <%= render partial: "cars/car", locals: {car: car} %>
 <% end %>
 </table>
