@@ -1,5 +1,5 @@
 <%= turbo_frame_tag "car_form" do %>
-    <%= form_with model: @car do |form| %>
+    <%= form_with(id: "car_form", model: @car) do |form| %>
         <% if @car.errors.any? %>
             <p><%= pluralize @car.errors.count, "error" %> prevented the operation</p>
             <% @car.errors.full_messages.each do |msg| %>
@@ -23,5 +23,5 @@
         </div>
         <%= form.submit class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center" %>
     <% end %>
-    <%= link_to "Close form", cars_path, class: "font-bold" %>
+    <%= link_to "Close form", :back, class: "font-bold" %>
 <% end %>

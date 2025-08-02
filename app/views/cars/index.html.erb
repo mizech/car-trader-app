@@ -1,7 +1,5 @@
 <h1 class="mb-4 text-4xl leading-none tracking-tight md:text-5xl lg:text-6xl dark:text-black">Available Cars</h1>
-<%= turbo_frame_tag "car_form" do %>
-    <%= link_to "Create new car", new_car_path, class: "font-bold" %>
-<% end %>
+<%= render partial: "link_form" %>
 <table class="w-full text-left table-auto min-w-max" id="cars">
     <tr>
         <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">Name</th>

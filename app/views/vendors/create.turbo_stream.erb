@@ -1,0 +1,2 @@
+<%= turbo_stream.append "vendors", partial: "vendors/vendor", locals: {vendor: @vendor} %>
+<%= turbo_stream.replace "vendor_form", partial: "vendors/link_form" %>

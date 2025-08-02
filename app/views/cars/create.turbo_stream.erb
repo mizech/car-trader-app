@@ -1,1 +1,2 @@
 <%= turbo_stream.append "cars", partial: "cars/car", locals: {car: @car} %>
+<%= turbo_stream.replace "car_form", partial: "cars/link_form" %>

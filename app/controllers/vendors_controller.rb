@@ -18,17 +18,17 @@ class VendorsController < ApplicationController
       redirect_to :edit, status: :unprocessable_entity
     end
   end
-
   def new
     @vendor = Vendor.new
   end
-
   def create
     @vendor = Vendor.new(set_params)
 
     if @vendor.save
-      flash[:notice] = "Vendor successfully created."
-      redirect_to root_path
+      respond_to do |format|
+          flash[:notice] = "Vendor successfully created."
+          format.turbo_stream
+      end
     else
       flash[:notice] = "Vendor creation failed."
       render :new, status: :unprocessable_entity
